@@ -37,20 +37,21 @@ function CartDAO(database) {
         * callback function.
         *
         */
+        this.db.collection("cart").findOne({userId: userId}, (err, cart) => {
+            if(err) return console.error(err);
+            console.log("\n***********Cart********** \n",cart);
+            callback(cart);
+        })
 
-        var userCart = {
-            userId: userId,
-            items: []
-        }
-        var dummyItem = this.createDummyItem();
-        userCart.items.push(dummyItem);
 
-        // TODO-lab5 Replace all code above (in this method).
+        // var userCart = {
+        //     userId: userId,
+        //     items: []
+        // }
+        // var dummyItem = this.createDummyItem();
+        // userCart.items.push(dummyItem);
 
-        // TODO Include the following line in the appropriate
-        // place within your code to pass the userCart to the
-        // callback.
-        callback(userCart);
+        // callback(userCart);
     }
 
 

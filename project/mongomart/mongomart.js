@@ -70,7 +70,6 @@ MongoClient.connect('mongodb://localhost:27017/mongomart', function(err, db) {
         var category = req.query.category ? req.query.category : "All";
 
         items.getCategories(function(categories) {
-            
             items.getItems(category, page, ITEMS_PER_PAGE, function(pageItems) {
 
                 items.getNumItems(category, function(itemCount) {
